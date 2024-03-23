@@ -1,4 +1,5 @@
 import data
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.arima.model import ARIMA
@@ -34,6 +35,9 @@ plt.plot(next_datetime, forecast.values[0], "ro", label="Forecast")
 plt.xticks(rotation=45)
 plt.subplots_adjust(bottom=0.25, left=0.175)
 
-plt.savefig("rust_causality.png")
+if not os.path.exists("output"):
+    os.makedirs("output")
+
+plt.savefig("output/rust_causality.png")
 
 print(f"Forecast for {next_datetime}: {forecast.values[0]}")

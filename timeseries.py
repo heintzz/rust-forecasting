@@ -1,3 +1,4 @@
+import os
 import data
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -32,6 +33,9 @@ plt.plot(next_datetime, forecast.values[0], "ro", label="Forecast")
 plt.xticks(rotation=45)
 plt.subplots_adjust(bottom=0.25, left=0.175)
 
-plt.savefig("rust_timeseries.png")
+if not os.path.exists("output"):
+    os.makedirs("output")
+
+plt.savefig("output/rust_timeseries.png")
 
 print(f"Forecast for {next_datetime}: {forecast.values[0]}")
