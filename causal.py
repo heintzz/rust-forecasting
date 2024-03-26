@@ -29,8 +29,10 @@ plt.title("Rust Players Forecast")
 plt.xlabel("Date")
 plt.ylabel("Players")
 
-plt.plot(df["datetime"], df["rust"], label="Actual")
-plt.plot(next_datetime, forecast.values[0], "ro", label="Forecast")
+plt.plot(df["datetime"], df["rust"])
+plt.plot(next_datetime, forecast.values[0], "ro")
+plt.text(next_datetime,
+         forecast.values[0], f"{round(forecast.values[0])}", ha='center', va='bottom')
 
 plt.xticks(rotation=45)
 plt.subplots_adjust(bottom=0.25, left=0.175)
